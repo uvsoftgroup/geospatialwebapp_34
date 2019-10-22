@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../../../css/main-static.css"
+	th:href="@{/css/main.css}" />
+<title th:text="#{application.info}"></title>
+<link th:href="@{/css/style.css}" href="/css/style.css" rel="stylesheet"
+	type="text/css" />
+</head>
+<body>
+	<th:block th:include="fragments/header"></th:block>
+	<table>
+	    <tr>
+			<td><h4>Registration Action(s):</h4></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"
+				onclick="location.href='/geospatialwebapp/userregistration/showUserRegistrations'"
+				value="User Registration Action(s)" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"
+				onclick="location.href='/geospatialwebapp/userrole/showUserRoles'"
+				value="User Role Registration Action(s)" /></td>
+		</tr>
+		
+		<tr>
+			<td><input type="button" class="button"
+				onclick="location.href='plotInfo/showPlotInfos'"
+				value="Plot Registration Action(s)" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"
+				onclick="location.href='buildingInfo/showBuildingInfos'"
+				value="Building Registration Action(s)" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="button"
+				onclick="location.href='geometryGisDataInfo/showGeometryGisDataInfos'"
+				value="Address Registration Action(s)" /></td>
+		</tr>
+		<tr>
+			<td><h4>Geo Web Map Portal:</h4></td>
+		</tr>
+		<tr>
+			<td><input type="button" class="buttonMap"
+				onclick="location.href='geoserverapplicationportal'"
+				value="Registred Address Geo Map Portal" /></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" class="buttonMap"
+				onclick="location.href='geoserverapplicationportal'"
+				value="Registred Plot Geo Map Portal" /></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" class="buttonMap"
+				onclick="location.href='geoserverapplicationportal'"
+				value="Registred Building Geo Map Portal" /></td>
+		</tr>
+
+	</table>
+	<th:block th:include="geoserverapplication"></th:block>
+	<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

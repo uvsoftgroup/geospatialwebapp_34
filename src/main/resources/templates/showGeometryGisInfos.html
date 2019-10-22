@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Address GIS Information</title>
+<th:block th:include="fragments/header"></th:block> 
+</head>
+<body>
+<h3><label th:text="#{label.user.geometrygisinfo}"></label></h3>
+<th:block th:include="geometryGisInfoForm"></th:block>
+<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

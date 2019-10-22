@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>Registered Plot Information </title>     
+</head>
+
+<body>
+<th:block th:include="fragments/header"></th:block>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(plotInfos)}">
+			<h2>All Registered Plot Information:<span th:text="${counter}"></span> </h2>
+			<table  class='table table-hover table-responsive table-bordered'>
+				<tr>
+				    <th><label th:text="#{label.plId}"></label></th>
+					<th><label th:text="#{label.plAddressId}"></label></th>
+					<th><label th:text="#{label.user.userRefNrId}"></label></th>
+					<th><label th:text="#{label.plCode}"></label></th>
+					<th><label th:text="#{label.plName}"></label></th>
+					<th><label th:text="#{label.plType}"></label></th>
+					<th><label th:text="#{label.plCenterLongitude}"></label></th>
+					<th><label th:text="#{label.plCenterLatitude}"></label></th>
+					<th><label th:text="#{label.plRemark}"></label></th>
+					<th>Edit</th>
+					<th>Delete</th>
+			
+				</tr>
+				<tr th:each="pl : ${plotInfos}">
+					<td><a th:text="${pl.plId}"></a></td>
+					<td th:text="${pl.plAddressId}"></td>
+					<td th:text="${pl.userRefNrId}"></td>
+					<td th:text="${pl.plCode}"></td>
+					<td th:text="${pl.plName}"></td>
+					<td th:text="${pl.plType}"></td>
+					<td th:text="${pl.plCenterLongitude}"></td>
+					<td th:text="${pl.plCenterLatitude}"></td>
+					<td th:text="${pl.plRemark}"></td>
+					<td><a th:href="@{/plotInfo/edit/{id}(id=${pl.plId})}" class="btn btn-success">Edit</a></td>
+					<td><a
+						th:href="${'/geospatialwebapp/plotInfo/delete/' + pl.plId}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet"
+	href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css"
+	type="text/css"></link>
+<link th:href="@{/css/map.css}" href="/css/map.css" rel="stylesheet" type="text/css" />
+
+<script
+	src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+<title>Address Registration Information</title>
+</head>
+<body>
+<th:block th:include="fragments/header"></th:block>
+   
+	<div id="map" class="map"></div>
+	<script src="js/mapjsscript/osm2.js"></script>
+	<h4>Geometry Coordinate Values:</h4>
+	<div id="formCoordinates"></div>
+
+	<button onclick="onMouseMove()" class="buttonCalculation">Calculated Geometry Area</button>
+	<div id="areaFeature"></div>
+	
+    
+	<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

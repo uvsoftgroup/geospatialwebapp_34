@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet"
+	href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css"
+	type="text/css"></link>
+<link th:href="@{/css/map.css}" href="/css/map.css" rel="stylesheet" type="text/css" />
+
+<script
+	src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+<title>Plot Information</title>
+</head>
+
+  <body>
+    <h2>My Map1</h2>
+    <div id="map" class="map"></div>
+    <a href="webgeojson2.html">Map2</a>
+    <script>
+  var featureCollection = [];
+    </script>
+    <script src="geojsondata.js"></script>
+    <script src="geojson.js"></script>
+  </body>
+</html>

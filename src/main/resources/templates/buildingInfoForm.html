@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<title>Building Information Registration</title>
+
+</head>
+<body>
+	<form th:action="${'/geospatialwebapp/buildingInfo/add'}"
+		th:object="${plotInfo}" method='post'>
+		<table class='table table-hover table-responsive'>
+
+			<tr>
+				<td><b><label th:text="#{label.buAddressId}"></label></b></td>
+				<td><input th:number="${buAddressId}" name='buAddressId' class='form-control' value="" th:required="required" /></td>
+
+				<td><b><label th:text="#{label.user.userRefNrId}"></label></b></td>
+				<td><input th:number="${userRefNrId}" name='userRefNrId' class='form-control' value=""  th:required="required" /></td>
+
+				<td><b><label th:text="#{label.buPlId}"></label></b></td>
+				<td><input th:number="${buPlId}"  name='buPlId' class='form-control' value="" th:required="required" /></td>
+
+				<td><b><label th:text="#{label.buCode}"></label></b></td>
+				<td><input type='text' name='buCode' class='form-control' value="" /></td>
+			</tr>
+
+			<tr>
+				<td><b><label th:text="#{label.buName}"></label></b></td>
+				<td><input th:text="${buName}" name='buName' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buUseType}"></label></b></td>
+				<td><input th:text="${buUseType}" name='buUseType' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buRemark}"></label></b></td>
+				<td><input th:text="${buRemark}" name='buRemark' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buNumberOfFloor}"></label></b></td>
+				<td><input th:number="${buNumberOfFloor}" name='buNumberOfFloor' class='form-control' value="" /></td>
+
+			</tr>
+
+			<tr>
+				<td><b><label th:text="#{label.buTotalHeight}"></label></b></td>
+				<td><input th:number="${buTotalHeight}"  name='buTotalHeight' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buNumberOfFloorUnit}"></label></b></td>
+				<td><input th:number="${buNumberOfFloorUnit}" name='buNumberOfFloorUnit' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buTotalGroundArea}"></label></b></td>
+				<td><input th:number="${buTotalGroundArea}"  name='buTotalGroundArea' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buTotalFloorArea}"></label></b></td>
+				<td><input th:number="${buTotalFloorArea}"  name='buTotalFloorArea' class='form-control' value="" /></td>
+
+			</tr>
+
+			<tr>
+				<td><b><label th:text="#{label.buSetBackFront}"></label></b></td>
+				<td><input th:number="${buSetBackFront}"  name='buSetBackFront' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buSetBackBack}"></label></b></td>
+				<td><input th:number="${buSetBackBack}" name='buSetBackBack' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buSetBackRight}"></label></b></td>
+				<td><input th:number="${buSetBackRight}" name='buSetBackRight' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.buSetBackLeft}"></label></b></td>
+				<td><input th:number="${buSetBackLeft}"  name='buSetBackLeft' class='form-control' value="" /></td>
+
+				
+			</tr>
+
+			<tr>
+			    <td><b><label th:text="#{label.buCenterLongitude}"></label></b></td>
+				<td><input th:number="${buCenterLongitude}"  name='buCenterLongitude' class='form-control' value="" th:required="required" /></td>
+				<td><b><label th:text="#{label.buCenterLatitude}"></label></b></td>
+				<td><input th:number="${buCenterLatitude}"  name='buCenterLatitude' class='form-control' value="" th:required="required" /></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				
+			</tr>
+		</table>
+
+		<input type="submit" id="submitButton" class="buttonSaveSetMap" value="Add or Save New Building Info" /> 
+		<input type="reset" id="resetButton" class="buttonSaveSetMap" value="Reset Building Info" />
+        <input type="button" class="buttonSaveSetMap" onclick="location.href='mapviewosm'" value="Get Coordinate from OSM Map with OpenLayer " />
+        <input type="button" class="buttonSaveSetMap" onclick="location.href='mapviewleaflet'" value="Get Coordinate from OSM Map with Leaflet" />
+        <input type="button" class="buttonSaveSetMap" onclick="location.href='buildingInfoList'" value="Registred Building Information" />
+	</form>
+</body>
+</html>

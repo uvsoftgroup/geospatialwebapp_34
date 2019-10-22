@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+body {font-family: verdana, sans-serif;}
+h1 {margin-left: 7em;}
+td {padding: 1em;}
+th {border-bottom-style: solid;}
+label {font-weight: bold; display: block;}
+.grouping {font-weight: bold; width: 50%; padding-top: 5px;}
+.input-form {margin-left: 1.5em;}
+li.childDisplay {
+	list-style-type: none;
+}
+.side-by-side {
+	display: inline-block
+}

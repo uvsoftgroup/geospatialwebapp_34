@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Building Registration</title>
+<th:block th:include="fragments/header"></th:block> 
+</head>
+<body>
+<h3><label th:text="#{label.buildingInfo}"></label></h3>
+<th:block th:include="buildingInfoForm"></th:block>
+<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

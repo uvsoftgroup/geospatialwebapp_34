@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>Registered User Role</title>     
+<th:block th:include="fragments/header"></th:block> 
+</head>
+
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(userRoles)}">
+			<h2>All Registered User Role Information:<span th:text="${counter}"></span> </h2>
+			<table  class='table table-hover table-responsive table-bordered'>
+				<tr>
+				    <th><label th:text="#{label.user.userRoleId}"></label></th>
+					<th><label th:text="#{label.user.userRefNrId}"></label></th>
+					<th><label th:text="#{label.user.userRoleName}"></label></th>
+					<th><label th:text="#{label.user.userRoleType}"></label></th>
+					<th><label th:text="#{label.user.userRoleDate}"></label></th>
+					<th><label th:text="#{label.user.userRoleMDate}"></label></th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<tr th:each="ur : ${userRoles}">
+					<td><a th:text="${ur.userRoleId}"></a></td>
+					<td th:text="${ur.userRefNrId}"></td>
+					<td th:text="${ur.userRoleName}"></td>
+					<td th:text="${ur.userRoleType}"></td>
+					<td th:text="${ur.userRoleDate}"></td>
+					<td th:text="${ur.userRoleMDate}"></td>
+					
+					<td><a th:href="@{/userrole/edit/{id}(id=${ur.userRoleId})}" class="btn btn-success">Edit</a></td>
+					<td><a
+						th:href="${'/geospatialwebapp/userrole/delete/' + ur.userRoleId}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<th:block th:include="fragments/footer"></th:block> 
+</body>
+</html>

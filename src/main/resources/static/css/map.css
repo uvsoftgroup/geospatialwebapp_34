@@ -1,0 +1,24 @@
+.map {
+	height: 553px;
+	width: 990px;
+	position: absolute;
+	left:350px;
+	top: 51px;
+}
+
+.mapgeoapp {
+	height: 553px;
+	width: 990px;
+	position: absolute;
+	left:350px;
+	top: 51px;
+}
+
+.mapgeoappportal {
+	height: 553px;
+	width: 1345px;
+	position: absolute;
+	left:10px;
+	top: 51px;
+}
+

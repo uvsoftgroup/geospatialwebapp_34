@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>User Registration</title>    
+<th:block th:include="fragments/header"></th:block>  
+</head>
+
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(userregistrations)}">
+			<h2>All Registered User Information:<span th:text="${counter}"></span> </h2>
+			<table  class='table table-hover table-responsive table-bordered'>
+				<tr>
+					<th>Registration Id</th>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Full Name</th>
+					<th>E_Mail</th>
+					<th>Mobile Number</th>
+					<th>Registered Name</th>
+					<th>Create Date</th>
+					<th>Last Modified Date</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<tr th:each="ur : ${userregistrations}">
+					<td><a th:text="${ur.userRegistrationId}"></a></td>
+					<td th:text="${ur.userRegistrationFName}"></td>
+					<td th:text="${ur.userRegistrationMName}"></td>
+					<td th:text="${ur.userRegistrationLName}"></td>
+					<td th:text="${ur.userRegistrationfullName}"></td>
+					<td th:text="${ur.userMail}"></td>
+					<td th:text="${ur.userMobileNr}"></td>
+					<td th:text="${ur.userRegistrationName}"></td>
+					<td th:text="${ur.userRegistrationCrDate}"></td>
+					<td th:text="${ur.userRegistrationLDate}"></td>
+				   
+					<td><a th:href="@{/userregistration/edit/{id}(id=${ur.userRegistrationId})}" class="btn btn-success">Edit</a></td>
+					<td><a
+						th:href="${'/geospatialwebapp/userregistration/delete/' + ur.userRegistrationId}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<th:block th:include="fragments/footer"></th:block> 
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>Geometry GIS Information</title>   
+<th:block th:include="fragments/header"></th:block>   
+</head>
+
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(geometryGisDataInfos)}">
+			<h2>All Registered Geomatry List: <span th:text="${counter}"></span></h2>
+			<table class='table table-hover table-responsive table-bordered'>
+				<tr>
+					<th>Geometry Id</th>
+					<th>Address Reference Id</th>
+					<th>Reference Number</th>
+					<th>Type</th>
+					<th>City</th>
+					<th>Road</th>
+					<th>Road Type</th>
+					<th>House Number</th>
+					<th>Postal Code</th>
+					<th>Country</th>
+	                <th>Geometry Type</th>
+	                <th>Geometry Coordinate(Longitute Latitude)</th>
+					<th>Edit</th>
+					<th>Delete</th>
+					</tr>
+				
+				<tr th:each="geometryGisInfo,rowNum: ${geometryGisDataInfos}">
+					<td><a th:text="${geometryGisInfo.ggdId}"></a></td>
+					<td th:text="${geometryGisInfo.adRefId}"></td>
+					<td th:text="${geometryGisInfo.referenceNr}"></td>
+					<td th:text="${geometryGisInfo.adType}"></td>
+					<td th:text="${geometryGisInfo.adCity}"></td>
+					<td th:text="${geometryGisInfo.adRoad}"></td>
+					<td th:text="${geometryGisInfo.adRoadType}"></td>
+					<td th:text="${geometryGisInfo.adHouseNumber}"></td>
+					<td th:text="${geometryGisInfo.adPostCode}"></td>
+					<td th:text="${geometryGisInfo.adCountry}"></td>
+					<td th:text="${geometryGisInfo.geoType}"></td>
+					<td th:text="${geometryGisInfo.wktToGeometry}"></td>
+					<td><a th:href="@{/geometryGisDataInfo/edit/{id}(id=${geometryGisInfo.ggdId})}"
+					class="btn btn-success">Edit</a></td>
+					<td><a
+						th:href="${'/geospatialwebapp/geometryGisDataInfo/delete/' + geometryGisInfo.ggdId}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<th:block th:include="fragments/footer"></th:block> 
+</body>
+</html>

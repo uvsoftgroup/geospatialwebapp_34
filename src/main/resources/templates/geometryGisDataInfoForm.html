@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>New Address Information</title>
+</head>
+ <body>
+   <form action="#" th:action="${'/geospatialwebapp/geometryGisDataInfo/add'}" th:object="${geometryGisDataInfo}" method='post'>
+	<table class='table table-hover table-responsive table-bordered'>
+		<tr>
+		<td><b><label th:text="#{label.user.adRefId}"></label></b></td>
+			<td><input th:text="${adRefId}" name='adRefId' class='form-control' value="" th:required="required" 
+			/></td>                 
+		
+		<td><b><label th:text="#{label.user.referenceNr}"></label></b></td>
+			<td>
+			 <textarea name="referenceNr" class="form-control" rows="3" cols="50"  
+			 th:text="${referenceNr}" 
+			 th:required="required" placeholder="Fill User Registration or Plot or Building Id" ></textarea>
+			  </td>
+			             
+			<td><b><label th:text="#{label.user.adType}"></label></b></td>
+			<td><input th:text="${adType}" name='adType' class='form-control' value="" /></td>  
+	    <td><b><label th:text="#{label.user.adCity}"></label></b></td>
+			<td><input th:text="${adCity}" name='adCity' class='form-control' value="" /></td>                 
+			 
+		</tr>
+	
+      <tr>
+         <td><b><label th:text="#{label.user.adRoad}"></label></b></td>
+			<td><input th:text="${adRoad}" name='adRoad' class='form-control' value="" /></td> 
+		<td><b><label th:text="#{label.user.adRoadType}"></label></b></td>
+			<td><input th:text="${adRoadType}" name='adRoadType' class='form-control' value="" /></td>                 
+			<td><b><label th:text="#{label.user.adHouseNumber}"></label></b></td>
+			<td><input th:text="${adHouseNumber}" name='adHouseNumber' class='form-control' value="" /></td>  
+			 <td><b><label th:text="#{label.user.adPostCode}"></label></b></td>
+			<td><input th:text="${adPostCode}" name='adPostCode' class='form-control' value="" /></td>                 
+			
+		</tr>
+		
+
+	<tr>
+	     <td><b><label th:text="#{label.user.adCountry}"></label></b></td>
+			<td><input th:text="${adCountry}" name='adCountry' class='form-control' value="" /></td>  
+		<td><b><label th:text="#{label.user.geoType}"></label></b></td>
+			<td><input th:text="${geoType}" name='geoType' class='form-control' value="" /></td>                 
+			
+			
+		</tr>
+		
+		
+		<tr>
+		<td><b><label th:text="#{label.user.wktToGeometry}"></label></b></td>
+			<td>
+			 <textarea name="wktToGeometry" class="form-control" rows="6" cols="100"  
+			 placeholder="Insert Geometry Coordinate Points as like below Exam. with start and end coordinate must be same or close!!!
+			  Exam.:POLYGON((90.371287 23.825549,90.371260 23.825672,90.371376 23.825692,90.371402 23.825567,90.371287 23.825549))"
+			 th:text="${wktToGeometry}" 
+			 th:required="required" ></textarea>
+			
+			  </td>
+			  
+		</tr>
+		
+	</table>
+	
+	<input type="submit" id="submitButton" class="buttonSaveSetMap" value="Add or Save New Address Info"/>
+	<input type="reset" id="resetButton" class="buttonSaveSetMap" value="Reset Address Info"/>
+    <input type="button" class="buttonSaveSetMap" onclick="location.href='mapviewosm2'" value="Get Coordinate from OSM with OpenLayer" />
+    <input type="button" class="buttonSaveSetMap" onclick="location.href='mapviewleaflet2'" value="Get Coordinate from OSM with Leaflet" />
+    <input type="button" class="buttonSaveSetMap" onclick="location.href='geometryGisDataInfoList'" value="Registered Address Information" />
+
+</form>
+</body>
+</html>

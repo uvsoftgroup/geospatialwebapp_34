@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>User Registration</title>
+<th:block th:include="fragments/header"></th:block> 
+</head>
+<body>
+<h3><label th:text="#{label.user.registration}"></label></h3>
+<th:block th:include="userRegistrationForm"></th:block>
+<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>Geometry GIS Information</title>   
+<th:block th:include="fragments/header"></th:block>   
+</head>
+
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(geometryGisInfos)}">
+			<h2>All Registered Geomatry List: <span th:text="${counter}"></span></h2>
+			<table class='table table-hover table-responsive table-bordered'>
+				<tr>
+					<th>Geo Id</th>
+					<th>Address Reference Id</th>
+					<th>Type</th>
+					<th>City</th>
+					<th>Road</th>
+					<th>Road Type</th>
+					<th>House Number</th>
+					<th>Postal Code</th>
+					<th>Country</th>
+	                <th>Geometry Type</th>
+	                <th>Geometry Coordinate(Longitute,Latitude)</th>
+					<th>Edit</th>
+					<th>Delete</th>
+					</tr>
+				
+				<tr th:each="geometryGisInfo,rowNum: ${geometryGisInfos}">
+					<td><a th:text="${geometryGisInfo.geoId}"></a></td>
+					<td th:text="${adRefId}"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a th:href="@{/geometryGisInfo/edit/{id}(id=${geometryGisInfo.geoId})}"
+					class="btn btn-success">Edit</a></td>
+					<td><a
+						th:href="${'/geospatialwebapp/geometryGisInfo/delete/' + geometryGisInfo.geoId}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<th:block th:include="fragments/footer"></th:block> 
+</body>
+</html>

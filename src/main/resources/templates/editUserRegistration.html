@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>User Registration</title>    
+</head>
+
+<h3>User Registration Information:</h3>
+ <body>
+ 
+<form th:action="@{/userregistration/editSave/{id}(id=${userRegistration.userRegistrationId})}" 
+		th:object="${userRegistration}" method='post'>
+	<table class='table table-hover table-responsive table-bordered'>
+	<tr>
+	
+		<td><b><label th:text="#{label.user.addressid}"></label></b></td>
+			<td><input th:text="${userAddressId}" name='userAddressId' class='form-control' value="" /></td>                 
+			<td><b><label th:text="#{label.user.fname}"></label></b></td>
+			<td><input type='text' name='userRegistrationFName' class='form-control' value="" /></td>
+		</tr>
+		
+		<tr>
+			<td><b><label th:text="#{label.user.mname}"></label></b></td>
+			<td><input type='text' name='userRegistrationMName' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.lname}"></label></b></td>
+			<td><input type='text' name='userRegistrationLName' class='form-control' value="" /></td>
+		</tr>
+		<tr>
+			<td><b><label th:text="#{label.user.fullname}"></label></b></td>
+			<td><input type='text' name='userRegistrationfullName' class='form-control' value="" /></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><b><label th:text="#{label.user.name}"></label></b></td>
+			<td><input type='text' name='userRegistrationName' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.password}"></label></b></td>
+			<td><input type='password' name='userRegistrationPassword' class='form-control' value="" /></td>
+
+		</tr>
+
+		<tr>
+			<td><b><label th:text="#{label.user.crdate}"></label></b></td>
+			<td><input data-provide="datepicker"
+				name="userRegistrationCrDate" data-date-format="yyyy-mm-dd"
+				placeholder="Select date"
+				value="" /></td>
+			<td><b><label th:text="#{label.user.ldate}"></label></b></td>
+			<td><input data-provide="datepicker"
+				name="userRegistrationLDate" data-date-format="yyyy-mm-dd"
+				placeholder="Select date"
+				value="" /></td>
+
+		</tr>
+
+	</table>
+   <input type="submit" value="Update User Registration"></input>
+</form>
+
+<th:block th:include="fragments/footer"></th:block>
+</body>
+</html>

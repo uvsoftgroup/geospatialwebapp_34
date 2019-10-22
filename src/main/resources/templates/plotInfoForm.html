@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<title>Plot Information Registration</title>
+
+</head>
+<body>
+	<form th:action="${'/geospatialwebapp/plotInfo/add'}"
+		th:object="${plotInfo}" method='post'>
+		<table class='table table-hover table-responsive'>
+
+			<tr>
+				<td><b><label th:text="#{label.plAddressId}"></label></b></td>
+				<td><input type='text' name='plAddressId' class='form-control' value="" th:required="required" /></td>
+				<td><b><label th:text="#{label.user.userRefNrId}"></label></b></td>
+				<td><input type='text' name='userRefNrId' class='form-control' value="" th:required="required" /></td>
+			
+				<td><b><label th:text="#{label.plCode}"></label></b></td>
+				<td><input th:text="${plCode}" name='plCode' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.plName}"></label></b></td>
+				<td><input type='text' name='plName' class='form-control' value="" /></td>
+			</tr>
+
+			<tr>
+				<td><b><label th:text="#{label.plType}"></label></b></td>
+				<td><input th:text="${plType}" name='plType' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.plNumber}"></label></b></td>
+				<td><input th:text="${plNumber}" name='plNumber' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.plMonzaNumber}"></label></b></td>
+				<td><input type='text' name='plMonzaNumber' class='form-control' value="" /></td>
+					
+				<td><b><label th:text="#{label.plCSNumber}"></label></b></td>
+				<td><input th:text="${plCSNumber}" name='plCSNumber' class='form-control' value="" /></td>
+			</tr>
+
+			<tr>
+				
+
+				<td><b><label th:text="#{label.plMSNumber}"></label></b></td>
+				<td><input type='text' name='plMSNumber' class='form-control'
+					value="" /></td>
+			
+				<td><b><label th:text="#{label.plRemark}"></label></b></td>
+				<td><input th:text="${plRemark}" name='plRemark'
+					class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.plTotalArea}"></label></b></td>
+				<td><input type='number' name='plTotalArea'
+					class='form-control' value="" /></td>
+					<td><b><label th:text="#{label.plTotalBuildingCoverArea}"></label></b></td>
+				<td><input th:number="${plTotalBuildingCoverArea}"
+					name='plTotalBuildingCoverArea' class='form-control' value="" /></td>
+			</tr>
+
+			<tr>
+				<td><b><label th:text="#{label.plNumberOfBuilding}"></label></b></td>
+				<td><input th:number="${plNumberOfBuilding}" name='plNumberOfBuilding' class='form-control' value="" /></td>
+		
+				<td><b><label th:text="#{label.plHeightFromMSL}"></label></b></td>
+				<td><input th:number="${plHeightFromMSL}" name='plHeightFromMSL' class='form-control' value="" /></td>
+
+				<td><b><label th:text="#{label.plCenterLongitude}"></label></b></td>
+				<td><input th:number="${plCenterLongitude}" name='plCenterLongitude' class='form-control' value="" th:required="required" /></td>
+				<td><b><label th:text="#{label.plCenterLatitude}"></label></b></td>
+				<td><input th:number="${plCenterLatitude}" name='plCenterLatitude' class='form-control' value="" th:required="required" /></td>
+				<td></td>
+			</tr>
+
+		
+		</table>
+
+		<input type="submit" id="submitButton" class="buttonSaveSetMap" value="Add or Save New Plot Info" /> 
+		<input type="reset" id="resetButton" class="buttonSaveSetMap" value="Reset Plot Info" />
+         <input type="button" class="buttonSaveSetMap" onclick="location.href='mapviewosm'" value="Get Coordinate from OSM Map with OpenLayer " />
+        <input type="button" class="buttonSaveSetMap" onclick="location.href='mapviewleaflet'" value="Get Coordinate from OSM Map with Leaflet" />
+		<input type="button" class="buttonSaveSetMap" onclick="location.href='plotInfoList'" value="Registred Plot Information" />
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>Registered Building Information </title>     
+<th:block th:include="fragments/header"></th:block>  
+</head>
+
+<body>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(buildingInfos)}">
+			<h2>All Registered Building Information:<span th:text="${counter}"></span> </h2>
+			<table  class='table table-hover table-responsive table-bordered'>
+				<tr>
+				    <th><label th:text="#{label.buId}"></label></th>
+				    <th><label th:text="#{label.buPlId}"></label></th>
+					<th><label th:text="#{label.buAddressId}"></label></th>
+					<th><label th:text="#{label.userRefNrId}"></label></th>
+					<th><label th:text="#{label.buCode}"></label></th>
+					<th><label th:text="#{label.buName}"></label></th>
+					<th><label th:text="#{label.buUseType}"></label></th>
+					<th><label th:text="#{label.buTotalHeight}"></label></th>
+					<th><label th:text="#{label.buNumberOfFloor}"></label></th>
+					<th><label th:text="#{label.buRemark}"></label></th>
+					<th>Edit</th>
+					<th>Delete</th>
+			
+				</tr>
+				<tr th:each="bu : ${buildingInfos}">
+					<td><a th:text="${bu.buId}"></a></td>
+					<td><a th:text="${bu.buPlId}"></a></td>
+					<td th:text="${bu.buAddressId}"></td>
+					<td th:text="${bu.userRefNrId}"></td>
+					<td th:text="${bu.buCode}"></td>
+					<td th:text="${bu.buName}"></td>
+					<td th:text="${bu.buUseType}"></td>
+					<td th:text="${bu.buTotalHeight}"></td>
+					<td th:text="${bu.buNumberOfFloor}"></td>
+					<td th:text="${bu.buRemark}"></td>
+					<td><a th:href="@{/buildingInfo/edit/{id}(id=${bu.buId})}" class="btn btn-success">Edit</a></td>
+					<td><a
+						th:href="${'/geospatialwebapp/buildingInfo/delete/' + bu.buId}"
+						class="btn btn-danger">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<th:block th:include="fragments/footer"></th:block>  
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<title>User Registration</title>
+
+</head>
+ <body>
+   <form th:action="${'/geospatialwebapp/userregistration/add'}" th:object="${userRegistration}" method='post'>
+	<table class='table table-hover table-responsive'>
+		<tr>
+		
+		
+		<td><b><label th:text="#{label.user.addressid}"></label></b></td>
+			<td><input th:text="${userAddressId}" name='userAddressId' class='form-control' value="" /></td>                 
+			<td><b><label th:text="#{label.user.fname}"></label></b></td>
+			<td><input type='text' name='userRegistrationFName' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.mname}"></label></b></td>
+			<td><input type='text' name='userRegistrationMName' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.lname}"></label></b></td>
+			<td><input type='text' name='userRegistrationLName' class='form-control' value="" /></td>
+		</tr>
+		<tr>
+		<td><b><label th:text="#{label.user.userMail}"></label></b></td>
+			<td><input th:mail="${userMail}" name='userMail' class='form-control' value="" /></td>                 
+			<td><b><label th:text="#{label.user.userPhoneNr}"></label></b></td>
+			<td><input type='text' name='userPhoneNr' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.userMobileNr}"></label></b></td>
+			<td><input type='text' name='userMobileNr' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.userWww}"></label></b></td>
+			<td><input type='text' name='userWww' class='form-control' value="" /></td>
+		</tr>
+		
+		<tr>
+			<td><b><label th:text="#{label.user.fullname}"></label></b></td>
+			<td><input type='text' name='userRegistrationfullName' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.crdate}"></label></b></td>
+			<td><input data-provide="datepicker"
+				name="userRegistrationCrDate" data-date-format="yyyy-mm-dd"
+				placeholder="Select date"
+				value="" /></td>
+			<td><b><label th:text="#{label.user.ldate}"></label></b></td>
+			<td><input data-provide="datepicker"
+				name="userRegistrationLDate" data-date-format="yyyy-mm-dd"
+				placeholder="Select date"
+				value="" /></td>
+			
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			
+
+          <td><b><label th:text="#{label.user.name}"></label></b></td>
+			<td><input type='text' name='userRegistrationName' class='form-control' value="" /></td>
+			<td><b><label th:text="#{label.user.password}"></label></b></td>
+			<td><input type='password' name='userRegistrationPassword' class='form-control' value="" /></td>
+		</tr>
+	<tr>
+	<td></td>
+	<td></td>
+	<td> 
+	<div>
+        <ul>
+            <li th:each="item,stat:${userRoles}" class="itemRow">
+                <div>
+                    <label th:for="${'userRoleName-'+stat.index}">userRoleName</label>
+                    <input type="text" class="form-control quantity" name="userRoleName"
+                           th:field="*{userRoles[__${stat.index}__].userRoleName}" th:id="${'userRoleName-'+stat.index}"/>
+ 
+                    <label th:for="${'userRoleType-'+stat.index}">userRoleType</label>
+                    <input type="text" class="form-control quantity" name="userRoleType"
+                           th:field="*{userRoles[__${stat.index}__].userRoleType}" th:id="${'userRoleType-'+stat.index}"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    </td>
+    </tr>
+	</table>
+	
+	<input type="submit" id="submitButton" class="buttonSaveSetMap" value="Add or Save New User Info"/>
+	<input type="reset" id="resetButton" class="buttonSaveSetMap"  value="Reset New User Info"/>
+	<input type="button" class="buttonSaveSetMap" onclick="location.href='userRegistrationList'" value="Registered User Information" />
+</form>
+</body>
+</html>
